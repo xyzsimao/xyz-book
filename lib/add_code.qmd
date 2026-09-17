@@ -1,0 +1,122 @@
+---
+title: "Add Code Files"
+author: Shafayet Khan Shafee
+date: last-modified
+format:
+  html: 
+    code-fold: true
+    code-tools: true
+jupyter: python3
+filters:
+  - code-fullscreen
+  - add-code-files
+execute: 
+  echo: true
+---
+
+> DISCLAIMER: The main focus of this extension is to enable `code-folding` for code chunk with added content from external files. `Show all code`, `Hide all code` from `code-tools` still would not work.
+
+> Note: View the source code of this document by clicking `</> Code` on top-right corner.
+
+You can add content from external file using either Pandoc Divs `:::` (easier) or using code chunk.
+
+
+## Using Pandoc Divs
+
+### `add-from`
+
+To add codes using pandoc divs, use the `add-from` attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be added to get correct syntax highlighting. (You can run `quarto pandoc --list-highlight-languages` to know for which languages, syntax highlighting is supported).
+
+
+::: {add-from=test/snippets/capitalize.lua}
+
+```{.lua}
+```
+
+:::
+
+You can also pass options `start-line`, `end-line` to add a specific range of lines, `code-line-numbers` to enable source code line numbering, `code-filename` or `filename` to show a name of the file the added code is associated with.
+
+
+### `start-line` & `end-line`
+
+::: {add-from=test/snippets/capitalize.sh start-line=2 end-line=7 code-line-numbers=true}
+
+```{.bash}
+```
+
+:::
+
+Note that, we have used `code-line-numbers: true` to add line numbers in code chunk.
+
+Also We can change the text `Code` to something nicer using `code-filename`.
+
+
+## `filename` and `code-filename`
+
+Using `filename` does not align properly with `code-folding`. Instead use `code-filename` when using `code-fold: true`.
+
+
+::: {add-from=test/snippets/capitalize.pl code-line-numbers="true" code-filename=capitalize.perl}
+
+```{.perl}
+```
+
+:::
+
+**`code-filename` only works with `code-folding`. For othercases, use `filename`**
+
+
+## Using Code chunk
+
+Now there is a way to use code chunk instead of pandoc divs to add contents from external file. But there are two things to **note**,
+
+- Since Quarto so far uses two types rendering engine, `knitr` and `jupyter`, we need to use code chunk accordingly.If you are rendering the quarto document using jupyter along with python kernel use {python} chunk to add code, similary if you are using julia kernel, you need to use {julia} and on the other hand if you are rendering the quarto document using knitr (i.e. engine: knitr) then use {r} chunk to add code, Or to avoid thinking about rendering engine, jupyter or knitr, you also can follow pandoc Div approach described above.
+
+- You also need to use a chunk option `source-lang` to give the name of the language of the content to be added to get correct syntax highlighting.
+
+
+> Note: View the source code of this document by clicking `</> Code` on top-right corner to see how code chunk is used.
+
+## `add-from`
+
+
+```{python}
+#| add-from: test/snippets/example.yml
+#| source-lang: yml
+#| code-filename: "Code snippet: example.yml"
+
+# comment
+```
+
+**One very important detail to note that, you must put a random comment in code chunk so that the code chunk is not treated as empty, to make this filter work.**
+
+## `start-line` & `end-line`
+
+You can specify from which line to which line you want to add,
+
+
+```{python}
+#| add-from: test/snippets/capitalize.scala
+#| source-lang: scala
+#| start-line: 1
+#| end-line: 17
+#| code-line-numbers: true
+#| code-filename: capitalize.scala
+
+# comment
+```
+
+Note that, we have used `code-filename: capitalize.scala` to add the filename.
+
+## `code-filename`
+
+```{python}
+#| add-from: test/snippets/capitalize.js
+#| source-lang: javascript
+#| code-line-numbers: true
+#| code-filename: capitalize.js
+
+# comment
+```
+

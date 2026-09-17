@@ -1,0 +1,12 @@
+.styled {
+  font-family: 'Itim', cursive;
+  font-size: 15px;
+}
+
+#btn1 {
+  background-color: #FF4918;
+}
+
+#btn2 {
+  background-color: #18FFB0;
+}

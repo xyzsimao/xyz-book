@@ -1,5 +1,6 @@
 project:
-  type: book
+  type: website
+  output-dir: docs
 
 book:
   title: "xyz-book"
@@ -15,9 +16,11 @@ bibliography: references.bib
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    css: styles.css
+    theme: [custom.scss, flatly]  
+    gargoyle-fonts: false 
+    mainfont: "Arial"      
+    sansfont: "sans-serif"
   pdf:
     documentclass: scrreprt
 
