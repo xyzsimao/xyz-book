@@ -13,3 +13,5 @@
 /content_files/
 /_extensions/
 /.ipynb_checkpoints/
+
+/.claude/

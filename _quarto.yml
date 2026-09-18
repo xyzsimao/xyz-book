@@ -1,29 +1,41 @@
 project:
+  render: 
+    - about.qmd
   type: book
   output-dir: docs
 
 book:
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: about
+        href: about
+  sidebar:
+    style: docked
   title: "xyz-book"
   author: "Norah Jones"
+  search: true
+  repo-url: https://github.com/xyzsimao/xyz-book.git
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
   date: "2026/9/17"
   chapters:
     - index.qmd
-    - intro.qmd
-    - content.qmd
-    - summary.qmd
-    - references.qmd
+    - part: "Content"
+      chapters:
+        - content/intro.qmd
+        - content/content.qmd
+        - content/sample.qmd    
+        - content/summary.qmd
+    - content/references.qmd
 
 bibliography: references.bib
 
-format:
-  html:
-    css: styles.css
-    theme: [cosmo, custom.scss]  
-    gargoyle-fonts: false 
-    mainfont: "Arial"      
-    sansfont: "sans-serif"
-  pdf:
-    documentclass: scrreprt
-
-
+# Comment next 2 lines if the PDF is having trouble
+metadata-files:
+  - _frontmatter.yml
 
