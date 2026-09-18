@@ -10,3 +10,6 @@
 # *.epub
 **/*.quarto_ipynb
 /docs/
+/content_files/
+/_extensions/
+/.ipynb_checkpoints/

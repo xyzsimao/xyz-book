@@ -1,5 +1,5 @@
 project:
-  type: website
+  type: book
   output-dir: docs
 
 book:
@@ -9,6 +9,7 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - content.qmd
     - summary.qmd
     - references.qmd
 
@@ -17,7 +18,7 @@ bibliography: references.bib
 format:
   html:
     css: styles.css
-    theme: [custom.scss, flatly]  
+    theme: [cosmo, custom.scss]  
     gargoyle-fonts: false 
     mainfont: "Arial"      
     sansfont: "sans-serif"
