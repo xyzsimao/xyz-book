@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   render:
-    - index.qmd
+    - "*.qmd"
 
 website:
   title: "xyz-book"
@@ -12,7 +12,18 @@ website:
         href: en-US/index.html
       - text: "中文"
         href: zh-CN/index.html
-
+  comments:
+    giscus:
+      repo: xyzsimao/xyz-book
+      repo-id: R_kgDOUeYasA
+      category: Announcements
+      category-id: DIC_kwDOUeYasM4DGAOt
+      mapping: "pathname"  # 推荐，或使用 "url"
+      reactions-enabled: true
+      input-position: "bottom"
+      theme:
+        light: light
+        dark: dark
 format:
   html:
     theme: [cosmo, light.scss]
