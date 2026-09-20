@@ -1,0 +1,9 @@
+% 中文正文排印规则，仅 zh-CN 引入。
+% 首行缩进两个全角字宽，段间不再额外留白 —— 中文书籍的常规做法。
+%
+% 用 2em 而不是 ctex 的 \ccwd：这里只加载了 xeCJK，\ccwd 未定义。
+% 全角汉字宽 = 一个 em，mainfont 与 CJKmainfont 同为 11pt 时 2em 正好两个字。
+\AtBeginDocument{%
+  \setlength{\parindent}{2em}%
+  \setlength{\parskip}{0pt}%
+}

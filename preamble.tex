@@ -1,0 +1,8 @@
+% 共享 PDF 排版精修，由 _frontmatter.yml 的 include-in-header 引入。
+% 只放 xelatex 下确实生效的东西：microtype 的字体伸延（protrusion）在 XeTeX 中可用，
+% 字距扩张（expansion）不可用，故不要指望后者。
+\usepackage{microtype}
+
+% 避免孤行（段首单行落在页尾）与寡行（段尾单行落在页首）。
+\widowpenalty=10000
+\clubpenalty=10000

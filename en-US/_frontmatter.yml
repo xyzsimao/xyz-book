@@ -15,8 +15,49 @@ format:
       margin-width: 300px
       gutter-width: 1.5rem
     
-  pdf:
+  titlepage-pdf:
     documentclass: scrreprt
+    pdf-engine: xelatex
+    fontsize: 11pt
+    linestretch: 1.15
+    geometry: [top=30mm, bottom=30mm, left=32mm, right=32mm]
+
+    # 字体必须写在 pdf 格式下：写在 html 下只生成 CSS，对 LaTeX 无效。
+    mainfont: "Times New Roman"
+    sansfont: "Helvetica Neue"
+    monofont: "Menlo"
+
+    colorlinks: true
+    linkcolor: black
+    toccolor: black
+    citecolor: NavyBlue
+    urlcolor: NavyBlue
+
+    include-in-header:
+      - file: ../preamble.tex
+
+    titlepage: plain
+    titlepage-logo: ../cover.png
+    titlepage-footer: "September 2026"
+    titlepage-theme:
+      page-align: center
+      # 覆盖 plain 主题默认的元素顺序，前后各加一个 \vfill 让标题块垂直居中，
+      # 徽标与日期留在页脚。写成 pandoc 的 raw inline 才能原样传给 LaTeX。
+      elements:
+        - "`\\vfill`{=latex}"
+        - "`\\titleblock`{=latex}"
+        - "`\\authorblock`{=latex}"
+        - "`\\vfill`{=latex}"
+        - "`\\logoblock`{=latex}"
+        - "`\\footerblock`{=latex}"
+      title-fontsize: 42
+      title-fontstyle: [bfseries]
+      title-space-after: "2\\baselineskip"
+      author-fontsize: 15
+      author-space-after: "1\\baselineskip"
+      logo-size: "0.10\\paperwidth"
+      logo-space-after: "2\\baselineskip"
+      footer-fontsize: 11
   # docx:
   #   toc: true
   #   toc-depth: 2

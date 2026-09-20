@@ -13,7 +13,7 @@ book:
   search: true
   repo-url: https://github.com/xyzsimao/xyz-book.git
   repo-actions: [edit]
-  downloads: [pdf, epub]
+  downloads: [pdf]
   sharing: [twitter, facebook]
   navbar:
     background: primary
