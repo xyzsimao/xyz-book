@@ -1,0 +1,43 @@
+project:
+  type: book
+  output-dir: ../docs/en-US
+  resources:
+    - go-zh-CN.html
+
+book:
+  title: "xyz-book"
+  author: "Norah Jones"
+  date: "2026/9/17"
+  search: true
+  repo-url: https://github.com/xyzsimao/xyz-book.git
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.html
+    right:
+      - text: "中文"
+        href: go-zh-CN.html
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - part: "Content"
+      chapters:
+        - content/intro.qmd
+        - content/content.qmd
+        - content/sample.qmd
+        - content/summary.qmd
+    - content/references.qmd
+    - about.qmd
+
+bibliography: ../references.bib
+
+metadata-files:
+  - _frontmatter.yml

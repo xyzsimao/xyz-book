@@ -1,0 +1,34 @@
+
+::: {.callout-note}
+这是一个 note 提示框。
+:::
+
+::: {.callout-warning}
+这是一个 warning 提示框
+:::
+
+::: {.callout-important}
+这是一个 important 提示框
+:::
+
+::: {.callout-caution}
+这是一个 caution 提示框
+:::
+
+::: {.callout-tip}
+这是一个 tip 提示框。带一点 `代码`。
+:::
+
+# 选项卡
+
+:::{.panel-tabset}
+
+## 第一个标签页
+
+这是第一个标签页的内容。
+
+## 第二个标签页
+
+这是第二个标签页的内容。
+
+:::

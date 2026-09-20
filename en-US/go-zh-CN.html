@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>中文</title>
+<script>
+(function () {
+  var from = "/en-US/", to = "/zh-CN/";
+  var p = location.pathname, i = p.indexOf(from);
+  if (i < 0) { location.replace("../zh-CN/index.html"); return; }
+  var rest = p.slice(i + from.length);
+  if (!rest || rest.indexOf("go-") === 0) rest = "index.html";
+  location.replace(p.slice(0, i) + to + rest);
+})();
+</script>
+</head>
+<body>
+<p>正在切换到中文版…如果没有跳转，请<a href="../zh-CN/index.html">点这里</a>。</p>
+</body>
+</html>

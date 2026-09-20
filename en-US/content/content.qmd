@@ -18,7 +18,7 @@ execute:
 To add codes using pandoc divs, use the `add-from` attribute to denote the path of the external file, relative to this qmd file. And within that Div, use a codeblock along with the name of the language of the content to be added to get correct syntax highlighting. (You can run `quarto pandoc --list-highlight-languages` to know for which languages, syntax highlighting is supported).
 
 
-::: {add-from=../lib/test/snippets/capitalize.lua}
+::: {add-from=../../lib/test/snippets/capitalize.lua}
 
 ```{.lua}
 ```

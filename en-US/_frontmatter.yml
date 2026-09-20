@@ -1,10 +1,10 @@
 format:
   html:
     page-layout: full
-    css: styles.css
+    css: ../styles.css
     theme:
-      light: [cosmo, light.scss] 
-      dark: [darkly, dark.scss] 
+      light: [cosmo, ../light.scss]
+      dark: [darkly, ../dark.scss]
     # theme: [cosmo, custom.scss]  
     gargoyle-fonts: false 
     mainfont: "Arial"      

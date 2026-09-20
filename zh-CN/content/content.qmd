@@ -1,0 +1,172 @@
+---
+title: "功能演示"
+format:
+  html:
+    code-fold: false
+    code-tools: true
+jupyter: python3
+filters:
+  - code-fullscreen
+  - add-code-files
+execute:
+  echo: true
+---
+## 使用 Pandoc Div
+
+### `add-from`
+
+要用 pandoc div 引入代码，就用 `add-from` 属性标明外部文件的路径，路径相对当前 qmd 文件解析。在该 Div 内部，再放一个代码块并用内容的语言名标注，以获得正确的语法高亮。（可以运行 `quarto pandoc --list-highlight-languages` 查看支持语法高亮的语言有哪些。）
+
+
+::: {add-from=../../lib/test/snippets/capitalize.lua}
+
+```{.lua}
+```
+
+:::
+
+```{mermaid}
+%%| echo: fenced
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+```{r}
+#| label: setup
+#| include: false
+
+library(knitr)
+```
+
+# 代码与表格
+
+## 语法高亮
+
+下面是一个示例代码块，用来演示语法高亮与代码注释都能正常工作。
+
+```{r}
+#| label: sh
+#| echo: true
+#| eval: true
+say_hello <- function(name) {
+    paste("Hello,", name, "!") # <1>
+}
+
+say_hello("world") # <2>
+```
+1. 相当有创意的一个例子。
+2. 所有关键动作都发生在这里。
+
+## 原样输出
+
+下面是 `penguins` 数据集的结构。
+
+```{r}
+#| label: penguins_str
+#| echo: true
+#| code-line-numbers: true
+library(palmerpenguins)
+str(penguins)
+```
+
+## 表格
+
+表格输出示例。
+
+```{r}
+#| label: table
+tab <- table(penguins$island, penguins$species)
+kable(tab)
+```
+
+`DT:datatable` 输出示例。
+
+```{r}
+#| label: dt
+library(DT)
+DT::datatable(penguins)
+```
+
+
+# 排版
+
+一个简单的列表：
+
+- one mississipi
+- two mississipi
+- three mississipi
+
+
+一段引用：
+
+> 哦！你这里的引用真不错。比那些老套的 lorem ipsum 精彩多了，真的。
+
+我们也可以[插入链接](https://www.r-project.org/)，或者直接写 URL，像这样：<https://www.r-project.org/>^[甚至还能加脚注]。
+
+一个极其复杂的公式：
+
+$$ y = \sqrt{\frac{1}{x + \beta}} $$
+
+
+# 图
+
+下面是一张直方图。
+
+```{r}
+#| label: hist
+library(ggplot2)
+ggplot(data = penguins) +
+    geom_histogram(aes(x = body_mass_g)) +
+    facet_grid(rows = vars(species))
+```
+
+还有一张漂亮的散点图，带题注。
+
+```{r}
+#| label: scatter
+#| fig.cap: "这是一个散点图"
+ggplot(data = penguins) +
+    geom_point(
+        aes(x = bill_length_mm, y = bill_depth_mm)
+    )
+```
+
+
+# 提示框
+
+::: {.callout-note}
+这是一个 note 提示框。
+:::
+
+::: {.callout-warning}
+这是一个 warning 提示框
+:::
+
+::: {.callout-important}
+这是一个 important 提示框
+:::
+
+::: {.callout-caution}
+这是一个 caution 提示框
+:::
+
+::: {.callout-tip}
+这是一个 tip 提示框。带一点 `代码`。
+:::
+
+# 选项卡
+
+:::{.panel-tabset}
+
+## 第一个标签页
+
+这是第一个标签页的内容。
+
+## 第二个标签页
+
+这是第二个标签页的内容。
+
+:::

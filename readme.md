@@ -11,3 +11,5 @@ extensions :
     2 downloadthis
     3 add-code-files
     4 code-fullscreen
+
+python3 -m http.server -d  docs  来查看中英文版本

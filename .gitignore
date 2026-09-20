@@ -1,8 +1,8 @@
 # Quarto 核心构建与缓存目录
-/.quarto/
-/_site/
-/_freeze/
-/site_libs/
+.quarto/
+_site/
+_freeze/
+site_libs/
 
 # 如果你使用的是特定的输出格式（如 PDF 或 Book），也应该忽略最终的输出目录（可选）
 # /_book/
@@ -10,8 +10,9 @@
 # *.epub
 **/*.quarto_ipynb
 /docs/
-/content_files/
+content_files/
 /_extensions/
 /.ipynb_checkpoints/
 
 /.claude/
+/.quarto/

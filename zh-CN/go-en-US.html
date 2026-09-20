@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>English</title>
+<script>
+(function () {
+  var from = "/zh-CN/", to = "/en-US/";
+  var p = location.pathname, i = p.indexOf(from);
+  if (i < 0) { location.replace("../en-US/index.html"); return; }
+  var rest = p.slice(i + from.length);
+  if (!rest || rest.indexOf("go-") === 0) rest = "index.html";
+  location.replace(p.slice(0, i) + to + rest);
+})();
+</script>
+</head>
+<body>
+<p>Switching to the English edition&hellip; if nothing happens, click <a href="../en-US/index.html">here</a>.</p>
+</body>
+</html>

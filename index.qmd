@@ -1,5 +1,10 @@
-# Preface {.unnumbered}
+---
+title: "xyz-book"
+toc: false
+page-layout: full
+---
 
-This is a Quarto book.
+选择语言版本 / Choose an edition:
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+- [English edition](en-US/index.html)
+- [中文版](zh-CN/index.html)

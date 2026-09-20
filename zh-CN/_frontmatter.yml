@@ -1,0 +1,23 @@
+format:
+  html:
+    page-layout: full
+    css: ../styles.css
+    theme:
+      light: [cosmo, ../light.scss]
+      dark: [darkly, ../dark.scss]
+    gargoyle-fonts: false
+    mainfont: "PingFang SC"
+    sansfont: "PingFang SC"
+    grid:
+      sidebar-width: 380px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
+
+  pdf:
+    documentclass: scrreprt
+    pdf-engine: xelatex
+    CJKmainfont: "Songti SC"
+    mainfont: "Times New Roman"
+    sansfont: "PingFang SC"
+    monofont: "Menlo"
